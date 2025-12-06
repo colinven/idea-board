@@ -1,0 +1,95 @@
+:root {
+    --pale-orange: #ffd6a3;
+    --bright-orange: #ffa230;
+    --dark-orange: #593407;
+    --pale-green: #c8fcb8;
+    --bright-green: #5dff2b;
+    --dark-green: #164d05;
+    --pale-blue: #b8e7fc;
+    --bright-blue: #2dbdfc;
+    --dark-blue: #06394f;
+    --pale-purple: #d5c0fc;
+    --medium-purple: #bc9afc;
+    --purple1: #803efa;
+    --purple2: #630fff;
+    --text-color: #1c1c1c;
+    --light-grey: #f0f0f0;
+    --medium-grey: #d1d1d1;
+    --dark-grey: #303030;
+    --shadow-color: rgba(0, 0, 0, 0.5); 
+
+}
+body{
+    font-family: 'Dynapuff', sans-serif;
+    color: var(--text-color);
+    padding: 0;
+    margin: 0;
+}
+#header {
+    background: linear-gradient(180deg, var(--pale-purple), var(--medium-purple));
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--medium-grey);
+}
+#header-text{
+    margin: 0 20px;
+    color: #1b0d36;
+}
+#header-add-idea-button{
+    font-family: 'Dynapuff', sans-serif;
+    font-size: 1.2rem;
+    padding: 20px 30px;
+    margin: 0 20px 0 20px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--purple1), var(--purple2));
+    color: white;
+    transition: all 0.3s ease;
+}
+#header-add-idea-button:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 10px var(--shadow-color);
+    cursor: pointer;
+}
+#idea-board-container{
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    padding: 50px;
+}
+.idea {
+    margin-bottom: 25px;
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    height: 150px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px var(--shadow-color);
+    transition: all 0.3s ease;
+}
+.idea:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 10px var(--shadow-color);
+    cursor: pointer;
+}
+.pending {
+    background-color: var(--pale-orange);
+    border: 2px solid var(--bright-orange);
+    color: var(--dark-orange)
+}
+.progress {
+    background-color: var(--pale-blue);
+    border: 2px solid var(--bright-blue);
+    color: var(--dark-blue)
+}
+.complete{
+    background-color: var(--pale-green);
+    border: 2px solid var(--bright-green);
+    color: var(--dark-green)
+}
