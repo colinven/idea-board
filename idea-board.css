@@ -1,11 +1,11 @@
 :root {
-    --pale-orange: #ffd6a3;
+    --pale-orange: #fff6ea;
     --bright-orange: #ffa230;
     --dark-orange: #593407;
-    --pale-green: #c8fcb8;
+    --pale-green: #f2ffee;
     --bright-green: #5dff2b;
     --dark-green: #164d05;
-    --pale-blue: #b8e7fc;
+    --pale-blue: #eefaff;
     --bright-blue: #2dbdfc;
     --dark-blue: #06394f;
     --pale-purple: #d5c0fc;
@@ -24,6 +24,13 @@ body{
     color: var(--text-color);
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+}
+input, textarea, select, button{
+    font-family: 'Dynapuff', sans-serif;
+    color: var(--dark-grey);
+    background: white;
+    box-shadow: 0 0 10px var(--shadow-color);
 }
 #header {
     background: linear-gradient(180deg, var(--pale-purple), var(--medium-purple));
@@ -37,7 +44,7 @@ body{
     margin: 0 20px;
     color: #1b0d36;
 }
-#header-add-idea-button{
+#add-idea-button{
     font-family: 'Dynapuff', sans-serif;
     font-size: 1.2rem;
     padding: 20px 30px;
@@ -46,9 +53,9 @@ body{
     border-radius: 10px;
     background: linear-gradient(90deg, var(--purple1), var(--purple2));
     color: white;
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
 }
-#header-add-idea-button:hover{
+#add-idea-button:hover{
     transform: scale(1.1);
     box-shadow: 0 0 10px var(--shadow-color);
     cursor: pointer;
@@ -61,7 +68,7 @@ body{
     padding: 50px;
 }
 .idea {
-    margin-bottom: 25px;
+    font-size: 1.2rem;
     text-align: center;
     width: 100%;
     max-width: 350px;
@@ -71,25 +78,133 @@ body{
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 5px var(--shadow-color);
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
 }
 .idea:hover{
     transform: scale(1.05);
     box-shadow: 0 0 10px var(--shadow-color);
     cursor: pointer;
 }
-.pending {
-    background-color: var(--pale-orange);
+.new {
+    background: linear-gradient(120deg, var(--pale-orange), white);
     border: 2px solid var(--bright-orange);
     color: var(--dark-orange)
 }
 .progress {
-    background-color: var(--pale-blue);
+    background: linear-gradient(120deg, var(--pale-blue), white);
     border: 2px solid var(--bright-blue);
     color: var(--dark-blue)
 }
 .complete{
-    background-color: var(--pale-green);
+    background: linear-gradient(120deg, var(--pale-green), white);
     border: 2px solid var(--bright-green);
     color: var(--dark-green)
+}
+.hidden {
+    display: none;
+}
+#backdrop{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+#modal-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+}
+#idea-expanded-modal{
+    position: relative;
+    max-width: 800px;
+    height: 400px;
+    background: var(--light-grey);
+    padding: 50px 40px;
+    border-radius: 20px;
+    border: 2px solid var(--dark-grey);
+}
+#idea-expanded-modal.new{
+    background: linear-gradient(120deg, var(--pale-orange), white);
+    border: 2px solid var(--bright-orange);
+    color: var(--dark-orange)
+}
+#idea-expanded-modal.progress{
+    background: linear-gradient(120deg, var(--pale-blue), white);
+    border: 2px solid var(--bright-blue);
+    color: var(--dark-blue)
+}
+#idea-expanded-modal.complete{
+    background: linear-gradient(120deg, var(--pale-green), white);
+    border: 2px solid var(--bright-green);
+    color: var(--dark-green)
+}
+#exit-expanded-button{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: none;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    background: transparent;
+    box-shadow: none;
+}
+#exit-expanded-button:hover{
+    transform: scale(1.1);
+}
+#idea-expanded-title{
+    font-size: 1.2rem;
+    width: 97%;
+    margin: 5px 0 40px 0;
+    height: 40px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: none;
+}
+#idea-expanded-desc{
+    display: block;
+    width: 97%;
+    margin: 5px 0 40px 0;
+    padding: 10px;
+    resize: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    border: none;
+}
+#idea-status{
+    font-size: 1rem;
+    border-radius: 5px;
+}
+#modal-buttons-container, #change-idea-buttons-container{
+    position: absolute;
+    bottom: 20px;           
+    right: 40px;
+}
+.modal-label{
+    margin-left: 10px;
+}
+#idea-status{
+    margin-left: 5px;
+    padding: 2px;
+    border: none;
+}
+.purple-button{
+    padding: 5px 10px;
+    background: linear-gradient(90deg, var(--purple1), var(--purple2));
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.purple-button:hover{
+    transform: scale(1.05);
 }
